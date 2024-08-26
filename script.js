@@ -38,19 +38,23 @@ function enterChatRoom() {
             }));
         });
     }
-    function showMessage(message){
+    function showMessage(message) {
         var messageElement = document.createElement('div');
-
-        if(message.type === 'JOIN'){
+    
+        if (message.type === 'JOIN') {
             messageElement.innerText = message.sender + " entrou na sala ";
-        }else if(message.type === 'LEAVE') {
+        } else if (message.type === 'LEAVE') {
             messageElement.innerText = message.sender + " saiu da sala ";
-        }else {
+        } else {
             messageElement.innerText = message.sender + " disse: " + message.content;
         }    
-     
-     document.getElementById('messages').appendChild(messageElement);
+    
+        var messagesContainer = document.getElementById('messages');
+        messagesContainer.appendChild(messageElement);
+    
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
     }
+    
     function leaveChat(){
         if (stompClient){
             var chatMessage = {
