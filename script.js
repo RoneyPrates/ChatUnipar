@@ -51,7 +51,28 @@ function enterChatRoom() {
      
      document.getElementById('messages').appendChild(messageElement);
     }
+    function leaveChat(){
+        if (stompClient){
+            var chatMessage = {
+                sender: username,
+                type: 'LEAVE'
+            };
+        stompClient.send("/app/leaveUser",{},JSON.stringify(chatMessage));
+        stompClient.disconnect(()=>{
+            console.log("Desconectado");
 
+        
+            var chatRoom = document.getElementById("chat-room");
+            chatRoom.classList.remove('show');
+            setTimeout(() => {
+                chatRoom.style.display = "none";
+                var welcomeForm = document.getElementById('welcome-form');
+                welcomeForm.style.display = 'block';
+                setTimeout(() => { welcomeForm.classList.remove('hide'); }, 10);
+            }, 550); 
+        });
+        }
+    }
     function sendMessage(){
         var messageContent = document.getElementById("messageInput").value.trim();
 
@@ -65,3 +86,9 @@ function enterChatRoom() {
             document.getElementById("messageInput").value = '';
         }
     }
+    document.getElementById("messageInput").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            sendMessage();
+        }
+    });
