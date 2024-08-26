@@ -1,0 +1,114 @@
+body, h2, input, button {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#welcome-form {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+}
+
+#welcome-form h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#welcome-form input[type="text"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#welcome-form button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #01b0cf;
+    color: black;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#welcome-form button:hover {
+    background-color: #01b0cf;
+}
+
+#chat-room {
+    display: none;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 400px;
+    max-height: 80vh;
+    overflow-y: auto;
+}
+
+#chat-room h2 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#messages {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    height: 300px;
+    overflow-y: auto;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}
+
+#messageInput {
+    width: calc(100% - 92px);
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#chat-room button {
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #01b0cf;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 5px;
+}
+
+#chat-room button:hover {
+    background-color: #01b0cf;
+}
+
+@media (max-width: 600px) {
+    #welcome-form, #chat-room {
+        width: 90%;
+    }
+
+    #messageInput {
+        width: calc(100% - 82px);
+    }
+}
